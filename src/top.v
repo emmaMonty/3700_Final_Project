@@ -37,14 +37,14 @@ module top (
    pwm_audio PWM1 (
       .clk(clk),
       .rst_n(rst_n),
-	  .volume(volume),
-	  .N(hz),
-	  .sout(sout)
+      .volume(volume),
+      .N(hz),
+      .sout(sout)
    );
    initial begin
-     GAIN       <= 1;
-     SHUTDOWN_L <= 1;
-     AIN        <= 0;
+     GAIN       = 1;
+     SHUTDOWN_L = 1;
+     AIN        = 0;
    end
    always @(posedge clk) begin
       if(rdy) begin
@@ -55,7 +55,7 @@ module top (
          ack <= 0;
       end
       
-      if(note > 0) begin
+      if(note == 0) begin
          AIN <= 0;
       end
       else begin

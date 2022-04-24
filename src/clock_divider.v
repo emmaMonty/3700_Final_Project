@@ -14,18 +14,17 @@ module clock_divider #(parameter N=5208) (
    end
 
     always @(posedge clk) begin
-        if(~rst_l) begin
-            clk_count <= 0;
-            div_clk <= 0; 
-        end
-        else if (clk_count == N) begin
-            div_clk   <= ~div_clk;
-            clk_count <= 0;          
-        end
-        else begin
-            clk_count <= clk_count + 1;
-        end
+       if(~rst_l) begin
+          clk_count <= 0;
+          div_clk <= 0; 
+       end
+       else if (clk_count == N) begin
+          div_clk   <= ~div_clk;
+          clk_count <= 0;          
+       end
+       else begin
+          clk_count <= clk_count + 1;
+       end
     end
    
 endmodule
-
